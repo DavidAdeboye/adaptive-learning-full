@@ -1,0 +1,16 @@
+# 1) Ensure Ollama is running and the model is pulled
+ollama run llama3.2:1b
+
+# 2) Setup Python env (optional but recommended)
+# python -m venv .venv
+# .\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+
+# 3) DB migration (safe to re-run)
+python migrate_db.py
+
+# 4) Run backend
+python backend.py
+
+# 5) In another terminal, run Streamlit
+streamlit run app.py
